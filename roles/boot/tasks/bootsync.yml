@@ -1,6 +1,6 @@
 - name: Add bootsync hook
   copy:
-    src: 20-bootsync.hook
+    src: 95-bootsync.hook
     dest: /etc/pacman.d/hooks/
 
 - name: Add bootsync script
