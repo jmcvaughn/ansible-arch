@@ -1,0 +1,10 @@
+- name: Install base utilites from Arch repositories
+  pacman:
+    name:
+      - archiso
+      - dtach
+      - efibootmgr
+      - htop
+      - lm_sensors
+      - rsync
+    state: present

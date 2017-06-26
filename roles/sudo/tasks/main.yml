@@ -1,0 +1,5 @@
+- name: Enable sudo access for wheel group
+  replace:
+    path: /etc/sudoers
+    regexp: '^#\s*%wheel\s+ALL=\(ALL\)\s+ALL'
+    replace: '%wheel ALL=(ALL) ALL'

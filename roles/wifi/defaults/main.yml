@@ -1,0 +1,3 @@
+wifi:
+  # Set to True to install broadcom-wl-dkms
+  broadcom: False

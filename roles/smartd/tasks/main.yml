@@ -1,0 +1,17 @@
+- name: Install smartmontools
+  pacman:
+    name: smartmontools
+    state: present
+
+- name: Configure smartd
+  replace:
+    path: /etc/smartd.conf
+    regexp: '^DEVICESCAN.*'
+    replace: 'DEVICESCAN -a -s {{ smartd.schedule }} -m {{ user.name }}'
+  notify: Restart smartd service
+
+- name: Enable and start smartd service
+  systemd:
+    name: smartd.service
+    enabled: True
+    state: started

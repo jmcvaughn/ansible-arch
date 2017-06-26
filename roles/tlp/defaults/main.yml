@@ -1,0 +1,5 @@
+tlp:
+  # If `True`, `tlp.btrfs_fix` will set `SATA_LINKPWR_ON_BAT` to
+  # `max_performance`, however by default it is disabled as it may not be
+  # necessary (see https://wiki.archlinux.org/index.php/TLP#Btrfs).
+  btrfs_fix: False

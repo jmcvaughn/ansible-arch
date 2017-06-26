@@ -1,0 +1,10 @@
+- name: Create user
+  user:
+    name: '{{ user.name }}'
+    #password: '{{ password }}'
+    uid: '{{ user.uid | default(omit) }}'
+    generate_ssh_key: '{{ user.generate_ssh_key | default(true) }}'
+    ssh_key_bits: '{{ user.ssh_key_bits | default(omit) }}'
+    ssh_key_type: '{{ user.ssh_key_type | default(omit) }}'
+    shell: '/usr/bin/{{ user.shell | default("zsh")}}'
+    state: present

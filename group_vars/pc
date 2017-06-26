@@ -1,0 +1,75 @@
+autologin: True
+
+chromium:
+  widevine: True
+
+fonts:
+  windows: True
+
+firefox:
+  install: False
+  lang: en-gb
+
+libreoffice:
+  lang: en-GB
+  hyphen_lang: en
+
+pacman:
+  repos:
+    # For brother-hll2340dw printer drivers
+    - multilib
+
+xorg:
+  x11_keymap: gb pc105
+  mouse_config: True
+
+# packages
+packages_pc:
+  repos:
+    - imv
+    - pandoc
+    - picocom
+    - rofi
+    - screenfetch
+    - termite
+    - virt-manager
+    - xclip
+    - xdg-utils
+    # ifuse installs all iOS utilities
+    - ifuse
+    # IPMI utilities
+    - ipmitool
+    - icedtea-web
+    # mpv
+    - mpv
+    - youtube-dl
+    # Syncthing
+    - syncthing
+    - syncthing-inotify
+    # remmina
+    - remmina
+    - libvncserver
+    # zathura
+    - zathura
+    - zathura-pdf-mupdf
+  aur:
+    - brother-hll2340dw
+    - telegram-desktop-bin
+      # iOS utilities
+    - ideviceinstaller-git
+
+# Combine lists, packages_all refers to packages for 'all' group
+packages:
+  repos: '{{ packages_pc.repos }}'
+  aur_keys: '{{ packages_all.aur_keys }}'
+  aur: '{{ packages_pc.aur }} + {{ packages_all.aur }}'
+
+# wifi
+wifi_pc: 
+  broadcom: True
+
+# Combine dictionaries, wifi_local refers to a system-specific configuration in
+# host_vars/
+wifi: '{{ wifi_pc | combine(wifi_local) }}'
+
+# vim: filetype=yaml

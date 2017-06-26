@@ -1,0 +1,13 @@
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+; Colour: gruvbox dark bg0_h - https://github.com/morhetz/gruvbox/
+ExecStart=/usr/bin/i3lock --inactivity-timeout=15 --no-unlock-indicator --color=1d2021
+
+[Install]
+WantedBy=sleep.target

@@ -1,0 +1,4 @@
+- name: Update pacman cache
+  pacman:
+    update_cache: True
+  ignore_errors: True

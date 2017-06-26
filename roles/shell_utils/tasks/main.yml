@@ -1,0 +1,14 @@
+- name: Install bash and zsh with completion
+  pacman:
+    name:
+      - bash-completion
+      - zsh
+      - zsh-completions
+      - zsh-syntax-highlighting
+      - tree
+      # bash part of base group, included for completeness
+      - bash
+    state: present
+
+- name: Install and configure pkgfile
+  include: pkgfile.yml

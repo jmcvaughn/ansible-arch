@@ -1,0 +1,7 @@
+- name: Install FaceTime HD (Broadcom 1570) webcam firmware and driver
+  aur:
+    name: '{{ item }}'
+    user: '{{ user.name }}'
+  with_items:
+    - bcwc-pcie-firmware
+    - bcwc-pcie-dkms

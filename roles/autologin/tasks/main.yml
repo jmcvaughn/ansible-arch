@@ -1,0 +1,12 @@
+- name: Create getty@tty1 override directory
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d/
+    state: directory
+  when: autologin is sameas True
+
+- name: Enable autologin
+  template:
+    src: override.conf
+    dest: /etc/systemd/system/getty@tty1.service.d/
+  notify: Reload systemd daemon
+  when: autologin is sameas True

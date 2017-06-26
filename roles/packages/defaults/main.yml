@@ -1,0 +1,18 @@
+packages: None
+  # Optional but undefined by default. Takes lists only. Usage example:
+  #packages_pc:
+  #  repos:
+  #    - imv
+  #    - pandoc
+  #    - picocom
+  #    - rofi
+  #    - termite
+  #    - virt-manager
+  #    - xclip
+  #    - xdg-utils
+  #  aur_keys:
+  #    # falconindy - cower
+  #    - '0xF56C0C53'
+  #  aur:
+  #    - cower
+  #    - pacaur

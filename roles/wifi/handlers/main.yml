@@ -1,0 +1,22 @@
+- name: Unload built-in Broadcom modules
+  modprobe:
+    name: '{{ item }}'
+    state: absent
+  with_items:
+    - b43
+#   - b43legacy
+    - ssb
+#   - bcm43xx
+#   - brcm80211
+#   - brcmfmac
+#   - brcmsmac
+#   - bcma
+#   - wl
+
+- name: Load wl module
+  modprobe:
+    name: wl
+    state: present
+
+- name: Reconfigure wpa_supplicant
+  command: wpa_cli reconfigure

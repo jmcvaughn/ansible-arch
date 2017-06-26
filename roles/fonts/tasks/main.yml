@@ -1,0 +1,15 @@
+- name: Install fonts from Arch repositories (Source Code Pro and Noto)
+  pacman:
+    name:
+      - adobe-source-code-pro-fonts
+      - noto-fonts
+    state: present
+
+- name: Install fonts from AUR (ttf-font-awesome)
+  aur:
+    name: ttf-font-awesome
+    user: '{{ user.name }}'
+
+- name: Install Windows fonts
+  include: windows_fonts.yml
+  when: fonts.windows is sameas True

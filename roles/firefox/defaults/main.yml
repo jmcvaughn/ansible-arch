@@ -1,0 +1,4 @@
+firefox:
+  install: False
+  # Language settings must match package name, e.g. firefox-i18n-en-gb
+  lang: en-gb

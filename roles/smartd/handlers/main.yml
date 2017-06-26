@@ -1,0 +1,4 @@
+- name: Restart smartd service
+  systemd:
+    name: smartd.service
+    state: restarted

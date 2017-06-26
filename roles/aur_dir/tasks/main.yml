@@ -1,0 +1,16 @@
+- name: Set environment variables for AUR user
+  become: True
+  become_user: '{{ user.name }}'
+  setup:
+    filter: ansible_env
+
+- name: Create AUR directory
+  become: True
+  become_user: '{{ user.name }}'
+  file:
+    path: '{{ ansible_env.HOME }}/aur'
+    state: directory
+
+- name: Reset environment variables
+  setup:
+    filter: ansible_env

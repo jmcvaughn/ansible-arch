@@ -1,0 +1,6 @@
+zfs:
+  # Switches between installation of stable and RC releases of ZFS on Linux.
+  # This can be changed after initial installation to switch releases, however
+  # the current Arch Linux kernel version and the released ZFS release must be
+  # in sync. See the archzfs repository: https://github.com/archzfs/archzfs
+  zfs_linux_git: False

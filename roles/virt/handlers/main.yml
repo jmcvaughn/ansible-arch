@@ -1,0 +1,12 @@
+- name: Reload kvm_intel module
+  modprobe:
+    name: kvm_intel
+    state: '{{ item }}'
+  with_items:
+    - absent
+    - present
+
+- name: Restart libvirtd service
+  systemd:
+    name: libvirtd.service
+    state: restarted

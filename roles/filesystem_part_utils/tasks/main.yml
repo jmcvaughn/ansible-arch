@@ -1,0 +1,10 @@
+- name: Install file and partitioning system utilities
+  pacman:
+    name:
+      - btrfs-progs
+      - dosfstools
+      - exfat-utils
+      - gptfdisk
+      - ntfs-3g
+      - cdrtools
+    state: present

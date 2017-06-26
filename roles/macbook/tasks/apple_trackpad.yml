@@ -1,0 +1,10 @@
+- name: Check xorg.conf.d is present
+  stat:
+    path: /etc/X11/xorg.conf.d/
+  register: xorg_conf_d
+
+- name: Copy Apple trackpad configuration file
+  copy:
+    src: 31-appletrackpad.conf
+    dest: /etc/X11/xorg.conf.d/
+  when: xorg_conf_d.stat.exists is sameas True

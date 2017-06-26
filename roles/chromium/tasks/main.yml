@@ -1,0 +1,12 @@
+- name: Install Chromium
+  pacman:
+    name: chromium
+    state: present
+
+- name: Install chromium-widevine (for Netflix in Chromium and qutebrowser)
+  aur:
+    name: chromium-widevine
+    user: '{{ user.name }}'
+  when:
+    - chromium.widevine is defined
+    - chromium.widevine is sameas True

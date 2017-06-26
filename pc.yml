@@ -1,0 +1,29 @@
+- include: base.yml
+
+- hosts: '{{ host }}'
+  become: True
+  become_user: root
+  become_method: su
+  roles:
+    # Conditional roles
+    - { role: nvidia, tags: nvidia, when: nvidia.install is sameas True }
+    - { role: tlp, tags: tlp, when: ansible_form_factor | match('Notebook') }
+    - { role: macbook, tags: macbook,
+        when: ansible_product_name | search('MacBook') }
+
+    - { role: cups, tags: cups }
+    - { role: fonts, tags: fonts }
+
+    # i3 requires xorg
+    - { role: xorg, tags: xorg }
+    - { role: i3, tags: i3 }
+
+    - { role: pulseaudio, tags: pulseaudio }
+    - { role: qutebrowser, tags: qutebrowser }
+    - { role: chromium, tags: chromium }
+    - { role: firefox, tags: firefox }
+    - { role: libreoffice, tags: libreoffice }
+    - { role: texlive, tags: texlive }
+    - { role: packages, tags: packages }
+    - { role: wifi, tags: wifi }
+    - { role: autologin, tags: autologin }

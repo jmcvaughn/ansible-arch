@@ -1,0 +1,8 @@
+- include: base.yml
+
+- hosts: '{{ host }}'
+  become: True
+  become_method: su
+  roles:
+    - { role: packages, tags: packages }
+    - { role: zfs, tags: zfs }

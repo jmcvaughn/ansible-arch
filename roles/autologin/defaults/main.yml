@@ -1,0 +1,7 @@
+# Automatically login to tty1 on boot.
+# DO NOT ENABLE:
+  # unless some form of whole disk encryption is in use
+  # if the system is headless
+  # if you aren't using the ansible-arch i3 role, which provides an i3lock on
+  # suspend service
+autologin: False

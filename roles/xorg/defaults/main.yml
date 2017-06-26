@@ -1,0 +1,3 @@
+xorg:
+  x11_keymap: gb pc105
+  mouse_config: False

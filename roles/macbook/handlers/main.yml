@@ -1,0 +1,7 @@
+- name: Reload hid_apple module
+  modprobe:
+    name: hid_apple
+    state: '{{ item }}'
+  with_items:
+    - absent
+    - present

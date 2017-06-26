@@ -1,0 +1,13 @@
+hostname: jvaughndesktop
+
+nvidia:
+  install: True
+  config: True
+
+wifi_local:
+  interface: wlp9s0
+
+smartd:
+  schedule: (L/../../6/19|S/../../[1-5]/19|S/../../7/19)
+
+# vim: filetype=yaml

@@ -1,0 +1,7 @@
+- name: Populate Postfix database
+  command: postalias /etc/postfix/aliases
+
+- name: Restart Postfix service
+  systemd:
+    name: postfix.service
+    state: restarted

@@ -1,0 +1,4 @@
+smartd:
+  # See smartd.conf(5)
+  # At 1900 hours: long test on Sat, short on all other days
+  schedule: (L/../../6/19|S/../../[1-5]/19|S/../../7/19)

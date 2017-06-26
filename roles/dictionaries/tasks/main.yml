@@ -1,0 +1,7 @@
+- name: Install dictionaries
+  pacman:
+    name:
+      - hunspell
+      - 'hunspell-{{ dictionaries.hunspell_lang }}'
+      - 'mythes-{{ dictionaries.mythes_lang }}'
+    state: present

@@ -1,0 +1,17 @@
+- name: Update pacman cache
+  pacman:
+    update_cache: True
+
+- name: Reload systemd daemon with systemd module
+  systemd:
+    daemon_reload: True
+  when: ansible_version.full >= '2.4.0.0'
+  listen: Reload systemd daemon
+
+- name: Reload systemd daemon with command module
+  command: systemctl daemon-reload
+  when: ansible_version.full < '2.4.0.0'
+  listen: Reload systemd daemon
+
+- name: Generate initramfs
+  command: mkinitcpio --allpresets

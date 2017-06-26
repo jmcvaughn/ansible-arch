@@ -1,0 +1,13 @@
+- name: Uninstall zfs-linux
+  pacman:
+    name: zfs-linux
+    state: absent
+    recurse: True
+
+- name: Install zfs-linux-git
+  pacman:
+    name: zfs-linux-git
+    state: present
+  notify:
+    - Reload systemd daemon
+    - Restart ZFS

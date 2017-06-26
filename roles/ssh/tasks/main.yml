@@ -1,0 +1,12 @@
+- name: Install OpenSSH and sshfs
+  pacman:
+    name:
+      - openssh
+      - sshfs
+    state: present
+
+- name: Enable SSH socket
+  systemd:
+    name: sshd.socket
+    enabled: True
+    state: started

@@ -1,0 +1,35 @@
+- hosts: '{{ host }}'
+  become: True
+  become_user: root
+  become_method: su
+#  vars_prompt:
+#    - name: password
+#      prompt: 'User password'
+#      private: True
+#      encrypt: sha512_crypt
+#      confirm: True
+#      salt_size: 8
+  roles:
+    # Update pacman cache
+    - { role: pacman_cache, tags: always }
+
+    - { role: hostname, tags: hostname }
+    - { role: time, tags: time }
+    - { role: locale, tags: locale }
+    - { role: boot, tags: boot }
+    - { role: user, tags: user }
+    - { role: pacman, tags: pacman }
+    - { role: build_packages, tags: build_packages }
+    - { role: sudo, tags: sudo }
+    - { role: filesystem_part_utils, tags: filesystem_part_utils }
+    - { role: file_utils, tags: file_utils }
+    - { role: shell_utils, tags: shell_utils }
+    - { role: ssh, tags: ssh }
+    - { role: base_utils, tags: base_utils }
+    - { role: neovim, tags: neovim }
+    - { role: dictionaries, tags: dictionaries }
+    - { role: virt, tags: virt }
+
+    # smartd requires postfix
+    - { role: postfix, tags: postfix }
+    - { role: smartd, tags: smartd }

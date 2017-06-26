@@ -1,0 +1,10 @@
+[Trigger]
+Type = File
+Operation = Install
+Operation = Upgrade
+Target = boot/vmlinuz-linux
+
+[Action]
+Description = Synchronising backup boot partition
+When = PostTransaction
+Exec = /usr/local/sbin/bootsync

@@ -1,0 +1,10 @@
+- name: Install Nvidia drivers
+  pacman:
+    name: nvidia
+    state: present
+
+- name: Copy Nvidia Xorg configuration file
+  copy:
+    src: 20-nvidia.conf
+    dest: /etc/X11/xorg.conf.d/
+  when: nvidia.config is sameas True

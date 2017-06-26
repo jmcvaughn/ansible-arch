@@ -1,0 +1,24 @@
+- name: Install tlp
+  pacman:
+    name: tlp
+    state: present
+
+# See https://wiki.archlinux.org/index.php/TLP#Btrfs
+- name: Set SATA_LINKPWR_ON_BAT to max_performance (potential Btrfs fix)
+  replace:
+    path: /etc/default/tlp
+    regexp: '^SATA_LINKPWR_ON_BAT=.*'
+    replace: 'SATA_LINKPWR_ON_BAT=max_performance'
+  notify: Restart tlp services
+  when: tlp.btrfs_fix is sameas True
+
+- name: Enable and start tlp.service
+  systemd:
+    name: tlp.service
+    enabled: True
+    state: started
+
+- name: Enable tlp-sleep.service
+  systemd:
+    name: tlp-sleep.service
+    enabled: True

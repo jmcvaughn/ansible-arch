@@ -1,0 +1,4 @@
+dictionaries:
+  # Language settings must match package name, e.g. hunspell-en_GB
+  hunspell_lang: en_GB
+  mythes_lang: en

@@ -1,0 +1,22 @@
+- name: Install archive utilities
+  pacman:
+    name:
+      - atool
+      - p7zip
+      - unrar
+      - unzip
+      - xz
+      - zip
+      # bzip2, gzip, tar part of base group, included for completeness
+      - bzip2
+      - gzip
+      - tar
+    state: present
+
+- name: Install download utilities
+  pacman:
+    name:
+      - aria2
+      - curl
+      - wget
+    state: present

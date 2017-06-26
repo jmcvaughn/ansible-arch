@@ -1,0 +1,7 @@
+- name: Install build packages
+  pacman:
+    name:
+      - base-devel
+      - git
+      - linux-headers
+    state: present

@@ -1,0 +1,16 @@
+- name: Install Xorg components
+  pacman:
+    name:
+      - xorg-server
+      - xorg-xev
+      - xorg-xinit
+      - xorg-xinput
+
+- name: Set correct X11 keymap
+  command: 'localectl --no-convert set-x11-keymap {{ xorg.x11_keymap }}'
+
+- name: Copy pointer configuration file
+  copy:
+    src: 30-mouse.conf
+    dest: /etc/X11/xorg.conf.d/
+  when: xorg.mouse_config is sameas True

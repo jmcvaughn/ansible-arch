@@ -1,0 +1,10 @@
+- name: Enable and start NTP synchronisation
+  systemd:
+    name: systemd-timesyncd.service
+    enabled: True
+    state: started
+
+- name: Set timezone and hardware clock
+  timezone:
+    hwclock: '{{ time.hwclock }}'
+    name: '{{ time.timezone }}'

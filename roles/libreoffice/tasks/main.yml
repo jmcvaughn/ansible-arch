@@ -1,0 +1,8 @@
+- name: Install LibreOffice Fresh
+  pacman:
+    name:
+      - libreoffice-fresh
+      - 'libreoffice-fresh-{{ libreoffice.lang }}'
+      - 'hyphen-{{ libreoffice.hyphen_lang }}'
+      - libmythes
+    state: present

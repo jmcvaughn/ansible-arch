@@ -1,0 +1,32 @@
+- name: Stop ZFS services
+  systemd:
+    name: '{{ item }}'
+    state: stopped
+  with_items:
+    - zfs-import-cache.service
+    - zfs-mount.service
+    - zfs-share.service
+    - zfs-zed.service
+    - zfs.target
+  listen: Restart ZFS
+
+- name: Reload ZFS module
+  modprobe:
+    name: zfs
+    state: '{{ item }}'
+  with_items:
+    - absent
+    - present
+  listen: Restart ZFS
+
+- name: Start ZFS services
+  systemd:
+    name: '{{ item }}'
+    state: started
+  with_items:
+    - zfs-import-cache.service
+    - zfs-mount.service
+    - zfs-share.service
+    - zfs-zed.service
+    - zfs.target
+  listen: Restart ZFS

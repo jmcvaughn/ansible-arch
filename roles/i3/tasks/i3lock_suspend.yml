@@ -1,0 +1,9 @@
+- name: Copy i3lock suspend service
+  copy:
+    src: suspend@.service
+    dest: /etc/systemd/system/
+
+- name: Enable i3lock suspend service for user
+  systemd:
+    name: 'suspend@{{ user.name }}.service'
+    enabled: True

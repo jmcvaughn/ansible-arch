@@ -1,0 +1,27 @@
+- name: Install Neovim
+  pacman:
+    name: neovim
+    state: present
+
+- name: Uninstall vi and vim
+  pacman:
+    name:
+      - vi
+      - vim
+    state: absent
+    recurse: True
+
+- name: Install neovim-drop-in (replace vi/vim with Neovim)
+  aur:
+    name: neovim-drop-in
+    user: '{{ user.name }}'
+
+- name: Install vim-spell
+  pacman:
+    name: 'vim-spell-{{ neovim.vim_spell }}'
+    state: present
+
+- name: Install gruvbox theme for vim
+  aur:
+    name: vim-gruvbox-git
+    user: '{{ user.name }}'

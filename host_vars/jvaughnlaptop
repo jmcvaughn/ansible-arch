@@ -1,0 +1,15 @@
+hostname: jvaughnlaptop
+
+macbook:
+  swap_opt_cmd: True
+
+wifi_local: 
+  interface: wlp3s0
+
+smartd:
+  schedule: (L/../../6/16|S/../../[1-5]/16|S/../../7/16)
+
+tlp:
+  btrfs_fix: False
+
+# vim: filetype=yaml

@@ -1,0 +1,35 @@
+- name: Set alias for root user
+  replace:
+    path: /etc/postfix/aliases
+    regexp: '^#?root:\s*.*'
+    replace: 'root:		{{ user.name }}'
+  notify:
+    - Populate Postfix database
+    - Restart Postfix service
+
+- name: Configure Postfix
+  lineinfile:
+    path: /etc/postfix/main.cf
+    insertafter: '{{ item.insertafter }}'
+    line: '{{ item.line }}'
+  with_items:
+    - { insertafter: '^#myhostname', line: 'myhostname = localhost' }
+    - { insertafter: '^#mydomain', line: 'mydomain = localdomain' }
+    - { insertafter: '^#relayhost',
+        line: 'default_transport = error: outside mail is not deliverable' }
+  notify: Restart Postfix service
+
+- name: Configure Postfix
+  replace:
+    path: /etc/postfix/main.cf
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+  with_items:
+    - { regexp: '^#inet_interfaces = \$myhostname, localhost$',
+        replace: 'inet_interfaces = $myhostname, localhost' }
+    - { regexp:
+        '^#mydestination = \$myhostname, localhost.\$mydomain, localhost$',
+        replace: 'mydestination = $myhostname, localhost.$mydomain, localhost' }
+    - { regexp: '^#mynetworks_style = host$',
+        replace: 'mynetworks_style = host' }
+  notify: Restart Postfix service

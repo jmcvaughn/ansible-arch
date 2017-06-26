@@ -1,0 +1,11 @@
+- name: Add bootsync hook
+  copy:
+    src: 20-bootsync.hook
+    dest: /etc/pacman.d/hooks/
+
+- name: Add bootsync script
+  copy:
+    src: bootsync
+    dest: /usr/local/sbin/
+    mode: 0755
+  notify: Run bootsync script

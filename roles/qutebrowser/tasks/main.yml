@@ -1,0 +1,12 @@
+- name: Install qutebrowser and qt5-webengine
+  pacman:
+    name:
+      - qutebrowser
+      - qt5-webengine
+
+- name: Install gst plugins
+  pacman:
+    name:
+      - gst-libav
+      - gst-plugins-good
+      - gst-plugins-bad

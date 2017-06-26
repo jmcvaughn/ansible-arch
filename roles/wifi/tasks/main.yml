@@ -1,0 +1,50 @@
+- name: Install wpa_supplicant
+  pacman:
+    name: wpa_supplicant
+    state: present
+
+- name: Install Broadcom DKMS driver
+  pacman:
+    name: broadcom-wl-dkms
+    state: present
+  when: wifi.broadcom is sameas True
+  # Removed automatic loading: unreliable and changes network mid-run
+  #notify:
+    #- Unload built-in Broadcom modules
+    #- Load wl module
+
+#- meta: flush_handlers
+
+- name: Create systemd interface file
+  template:
+    src: interface.network.j2
+    dest: '/etc/systemd/network/{{ wifi.interface }}.network'
+
+# Create your own wpa_supplicant configuration file by renaming
+# files/wpa_supplicant-template.conf to match the your network interface. If
+# this file is to be hosted publically (e.g. GitHub), you MUST encrypt it using
+# the ansible-vault utility.
+- name: Create wpa_supplicant interface file
+  copy:
+    src: 'wpa_supplicant-{{ wifi.interface }}.conf'
+    dest: '/etc/wpa_supplicant/wpa_supplicant-{{ wifi.interface }}.conf'
+  notify: Reconfigure wpa_supplicant
+
+- name: Enable network services
+  systemd:
+    name: '{{ item }}'
+    enabled: True
+    # Starting removed: wpa_supplicant@.service requires interface to be up,
+    # disabled in task 'Install Broadcom DKMS driver'
+    #state: started
+  with_items:
+    - systemd-networkd.service
+    - 'wpa_supplicant@{{ wifi.interface }}.service'
+    - systemd-resolved.service
+
+- name: Symlink systemd-resolved resolv.conf
+  file:
+    path: /etc/resolv.conf
+    src: /run/systemd/resolve/resolv.conf
+    state: link
+    force: True

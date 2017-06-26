@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# Script to synchronise a primary /boot partition to a backup partition
+mount /boot.bak/
+rsync --archive --delete /boot/ /boot.bak/
+umount /boot.bak/

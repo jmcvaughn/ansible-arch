@@ -1,0 +1,2 @@
+# Disable wake from S3 by XHC1 - prevent system waking when lid closed
+SUBSYSTEM=="pci", KERNEL=="0000:00:14.0", ATTR{power/wakeup}="disabled"

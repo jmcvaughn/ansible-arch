@@ -1,0 +1,3 @@
+neovim:
+  # Language settings must match package name, e.g. vim-spell-en
+  vim_spell: en

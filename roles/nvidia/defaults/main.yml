@@ -1,0 +1,6 @@
+nvidia:
+  install: False
+  # Copies the very specific configuration for my 3440 x 1440, dual card setup
+  # with overclocking enabled through the use of a dummy monitor. Unless you
+  # have a similar setup (extremely unlikely), leave this disabled.
+  copy_config: False

@@ -1,0 +1,5 @@
+macbook:
+  # Set to True to match standard PC keyboards
+  swap_opt_cmd: False
+  # Drivers and firmware recently removed from AUR, leave disabled.
+  webcam: False

@@ -1,0 +1,11 @@
+- name: Install TeXLive
+  pacman:
+    name:
+      - biber
+      - texlive-core
+      - texlive-bibtexextra
+      - texlive-fontsextra
+      - texlive-latexextra
+      - texlive-pictures
+      - texlive-publishers
+    state: present

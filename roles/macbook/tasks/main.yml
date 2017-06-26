@@ -1,0 +1,43 @@
+# Waking while open and suspended still broken
+- name: Set udev rules to prevent waking while closed
+  copy:
+    src: 90-xhc_sleep.rules
+    dest: /etc/udev/rules.d/
+
+- name: Copy Apple trackpad configuration file
+  tags: xorg
+  include: apple_trackpad.yml
+
+- name: Swap alt/cmd keys on Apple keyboard
+  lineinfile:
+    path: /etc/modprobe.d/hid_apple.conf
+    create: True
+    line: 'options hid_apple swap_opt_cmd=1'
+    state: present
+  notify:
+    - Generate initramfs
+    - Reload hid_apple module
+  when: macbook.swap_opt_cmd is sameas True
+
+# To set brightness values manually (value being a numerical value ranging from
+# 0 to the value of max_brightness in each directory):
+# Display:
+# echo VALUE | sudo tee /sys/class/backlight/intel_backlight/brightness
+# Keyboard:
+# echo VALUE | sudo tee /sys/class/leds/smc\:\:kbd_backlight/brightness
+- name: Enable password-less sudo for adjusting display and keyboard brightness
+  template:
+    src: sudoers.j2
+    dest: '/etc/sudoers.d/{{ user.name }}'
+    mode: 0440
+    validate: 'visudo --check --file=%s'
+
+- name: Install ICC profile components
+  include: icc.yml
+  when: ansible_product_name | match('MacBookAir6,2')
+
+- name: Install FaceTime HD (Broadcom 1570) webcam firmware and driver
+  include: macbook_webcam.yml
+  when:
+    - ansible_product_name | match('MacBookAir6,2')
+    - macbook.webcam is sameas False

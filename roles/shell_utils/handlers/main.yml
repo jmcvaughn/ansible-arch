@@ -1,0 +1,2 @@
+- name: Synchronise pkgfile database
+  command: pkgfile --update
