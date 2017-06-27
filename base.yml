@@ -29,6 +29,7 @@
     - { role: neovim, tags: neovim }
     - { role: dictionaries, tags: dictionaries }
     - { role: virt, tags: virt }
+    - { role: docker, tags: docker }
 
     # smartd requires postfix
     - { role: postfix, tags: postfix }

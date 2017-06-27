@@ -111,6 +111,12 @@ ZFS releases may not be in sync with current kernel releases, causing the
 installation of ZFS packages to fail. [Check the archzfs repository prior to
 running the role.](https://github.com/archzfs/archzfs)
 
+### Docker
+The `docker` role only installs Docker and enables/starts `docker.service`.
+This is sufficient for my systems as either the `btrfs` or `zfs` Docker storage
+drivers will be used automatically. Custom configurations will need to be
+applied manually prior to running the role.
+
 ### GPG keys
 Currently, ansible-arch can add keys automatically. Note that this is not
 sensible; automating the addition of keys undermines the point of keys in the
