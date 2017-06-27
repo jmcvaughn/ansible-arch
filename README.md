@@ -86,7 +86,8 @@ See `group_vars/pc` for usage examples of both.
 If ansible-arch is run on a notebook, tlp will be installed, enabled and started
 with its default settings. `tlp.btrfs_fix` will set `SATA_LINKPWR_ON_BAT` to
 `max_performance` if set to `True`, but this is disabled by default as it may
-not be necessary (see https://wiki.archlinux.org/index.php/TLP#Btrfs).
+not be necessary (see the [ArchWiki page on
+TLP](https://wiki.archlinux.org/index.php/TLP#Btrfs)).
 
 #### MacBooks
 The following tasks are performed by the `macbook` role:
@@ -115,8 +116,8 @@ Currently, ansible-arch can add keys automatically. Note that this is not
 sensible; automating the addition of keys undermines the point of keys in the
 first place. This was done to streamline testing. This will probably be removed
 in the future or at the very least some form of interactivity will be
-incorporated. Add keys manually following ArchWiki's guides for [Adding
-unofficial keys for unofficial
+incorporated. Add keys manually following the [ArchWiki guide to adding
+unofficial keys for unofficial user
 repositories](https://wiki.archlinux.org/index.php/Pacman/Package_signing#Adding_unofficial_keys)
 (e.g. for the ZFS repository), or by running the following as your user for AUR
 packages (where `KEY` refers to the key to work with):
@@ -127,7 +128,7 @@ $ gpg --lsign-key KEY         # Locally sign the key to trust
 ```
 
 ### wpa\_supplicant setup
-The `wifi` module contains wpa\_supplicant configuration files for my systems,
+The `wifi` role contains wpa\_supplicant configuration files for my systems,
 encrypted using ansible-vault. These files can be ignored or deleted.
 
 wpa\_supplicant is used in conjunction with systemd-networkd and
@@ -150,9 +151,9 @@ If required, substitute the playbook for your own or `server.yml`. Substitute
 corresponding `host_vars/` file. `--ask-vault-pass` can be omitted if the
 playbook run does use any Vault-encrypted files.
 
-If running the `wifi` or `zfs` roles for the first time, reboot the system to
-apply the configuration (or unload and reload the appropriate modules and start
-the appropriate services).
+If running the `wifi` role for the first time, reboot the system to apply the
+configuration (or unload and reload the appropriate modules and start the
+appropriate services).
 
 ### Tags
 Tags are defined to match role names in the playbooks. It is therefore possible
