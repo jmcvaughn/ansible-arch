@@ -2,4 +2,3 @@
   systemd:
     name: tlp.service
     state: restarted
-

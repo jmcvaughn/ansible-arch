@@ -1,9 +1,7 @@
 fonts:
-  # The fonts role can import Windows fonts, however as these are protected by
-  # copyright they are not included with ansible-arch, and the functionality is
-  # disabled by default. Ensure that fonts.windows is set to True and follow the
-  # instructions provided on ArchWiki
-  # (https://wiki.archlinux.org/index.php/Microsoft_fonts#Using_fonts_from_a_Windows_partition),
-  # setting files/WindowsFonts/ in the ansible-arch directory as your
-  # destination.
+  # To import Windows fonts:
+  # - Set fonts.windows to True
+  # - Follow the instructions provided on ArchWiki, setting
+  #   ANSIBLE-ARCH_DIR/roles/files/WindowsFonts/ as the destination:
+  #   (https://wiki.archlinux.org/index.php/Microsoft_fonts#Using_fonts_from_a_Windows_partition)
   windows: False

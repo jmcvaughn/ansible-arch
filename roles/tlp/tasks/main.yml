@@ -9,7 +9,7 @@
     path: /etc/default/tlp
     regexp: '^SATA_LINKPWR_ON_BAT=.*'
     replace: 'SATA_LINKPWR_ON_BAT=max_performance'
-  notify: Restart tlp services
+  notify: Restart tlp service
   when: tlp.btrfs_fix is sameas True
 
 - name: Enable and start tlp.service

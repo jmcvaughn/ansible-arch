@@ -12,6 +12,6 @@
     path: /etc/pacman.conf
     regexp: '^#\[{{ item }}\]$\n^#Include\s+=\s+/etc/pacman.d/mirrorlist$'
     replace: '[{{ item }}]\nInclude = /etc/pacman.d/mirrorlist'
-  notify: Update pacman cache
   with_items: '{{ pacman.repos }}'
+  notify: Update pacman cache
   when: pacman.repos is defined

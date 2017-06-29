@@ -25,10 +25,11 @@
 
 - meta: flush_handlers
 
-- name: Enable ZFS services
+- name: Enable and start ZFS services
   systemd:
     name: '{{ item }}'
     enabled: True
+    state: started
   with_items:
     - zfs-import-cache.service
     - zfs-mount.service

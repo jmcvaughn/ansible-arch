@@ -6,7 +6,9 @@
 - name: Configure Postfix
   include: configure.yml
 
-- name: Enable Postfix service
+- meta: flush_handlers
+
+- name: Enable and start Postfix service
   systemd:
     name: postfix.service
     enabled: True

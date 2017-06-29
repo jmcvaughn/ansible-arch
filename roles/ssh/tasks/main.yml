@@ -5,7 +5,7 @@
       - sshfs
     state: present
 
-- name: Enable SSH socket
+- name: Enable and start SSH socket
   systemd:
     name: sshd.socket
     enabled: True

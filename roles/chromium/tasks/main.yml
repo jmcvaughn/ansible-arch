@@ -7,6 +7,4 @@
   aur:
     name: chromium-widevine
     user: '{{ user.name }}'
-  when:
-    - chromium.widevine is defined
-    - chromium.widevine is sameas True
+  when: chromium.widevine is sameas True
