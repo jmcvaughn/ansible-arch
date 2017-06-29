@@ -1,0 +1,31 @@
+- name: Add user to libvirt group
+  user:
+    name: '{{ user.name }}'
+    groups: libvirt
+    append: True
+
+- name: Enable libvirt hostname resolution
+  replace:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts:\s+files\s+(?!libvirt)'
+    replace: 'hosts: files libvirt '
+
+- name: Enable nested KVM
+  lineinfile:
+    path: /etc/modprobe.d/kvm_intel.conf
+    create: True
+    line: 'options kvm_intel nested=1'
+    state: present
+  notify:
+    - Generate initramfs
+    - Reload kvm_intel module
+
+- name: Add OVMF paths to libvirt QEMU configuration
+  blockinfile:
+    path: /etc/libvirt/qemu.conf
+    marker: '# {mark} Ansible-managed block: Add OVMF paths to libvirt QEMU configuration'
+    block: |
+      nvram = [
+          "/usr/share/ovmf/ovmf_code_x64.bin:/usr/share/ovmf/ovmf_vars_x64.bin"
+      ]
+  notify: Restart libvirtd service

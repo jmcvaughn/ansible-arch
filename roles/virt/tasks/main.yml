@@ -1,7 +1,8 @@
 - name: Install virtualisation packages
   pacman:
     name:
-      # libvirt and its optional dependencies; dmidecode required to supress errors
+      # libvirt and its optional dependencies
+      # dmidecode required to supress errors
       - libvirt
       - bridge-utils
       - dmidecode
@@ -11,23 +12,12 @@
       - qemu-headless
       # To create virtual machines
       - virt-install
+      # UEFI firmware
+      - ovmf
     state: present
 
-- name: Enable nested KVM
-  lineinfile:
-    path: /etc/modprobe.d/kvm_intel.conf
-    create: True
-    line: 'options kvm_intel nested=1'
-    state: present
-  notify:
-    - Generate initramfs
-    - Reload kvm_intel module
-
-- name: Enable libvirt hostname resolution
-  replace:
-    path: /etc/nsswitch.conf
-    regexp: '^hosts:\s+files\s+(?!libvirt)'
-    replace: 'hosts: files libvirt '
+- name: Configure libvirt and QEMU/KVM
+  include: configure.yml
 
 - meta: flush_handlers
 
@@ -39,9 +29,3 @@
   with_items:
     - libvirtd.service
     - libvirt-guests.service
-
-- name: Add user to libvirt group
-  user:
-    name: '{{ user.name }}'
-    groups: libvirt
-    append: True
