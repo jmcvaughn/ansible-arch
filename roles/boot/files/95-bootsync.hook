@@ -2,7 +2,7 @@
 Type = File
 Operation = Install
 Operation = Upgrade
-Target = boot/vmlinuz-linux
+Target = boot/*
 
 [Action]
 Description = Synchronising backup boot partition
