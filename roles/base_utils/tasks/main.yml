@@ -7,4 +7,7 @@
       - htop
       - lm_sensors
       - rsync
+      # Network diagnostic tools
+      - bind-tools
+      - mtr
     state: present
