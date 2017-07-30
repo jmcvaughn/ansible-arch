@@ -10,6 +10,6 @@ smartd:
   schedule: (L/../../6/05|S/../../[1-5]/05|S/../../7/05)
 
 zfs:
-  zfs_linux_git: True
+  zfs_linux_git: False
 
 # vim: filetype=yaml
