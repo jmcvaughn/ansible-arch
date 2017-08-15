@@ -3,7 +3,7 @@
     name: chromium
     state: present
 
-- name: Install chromium-widevine (for Netflix in Chromium and qutebrowser)
+- name: Install chromium-widevine
   aur:
     name: chromium-widevine
     user: '{{ user.name }}'

@@ -10,3 +10,9 @@
       - gst-libav
       - gst-plugins-good
       - gst-plugins-bad
+
+- name: Install qt5-webengine-widevine
+  aur:
+    name: qt5-webengine-widevine
+    user: '{{ user.name }}'
+  when: qutebrowser.webengine_widevine is sameas True

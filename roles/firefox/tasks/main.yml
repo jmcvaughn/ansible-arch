@@ -4,4 +4,3 @@
       - firefox
       - 'firefox-i18n-{{ firefox.lang }}'
     state: present
-  when: firefox.install is sameas True

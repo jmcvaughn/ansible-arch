@@ -1,0 +1,6 @@
+qutebrowser:
+  install: False
+  # For DRM content playback (e.g. Netflix). Note that if you have Chromium and
+  # chromium-widevine installed, you don't need qt5-webengine-widevine. However,
+  # both can be installed (e.g. to reduce hassle if Chromium is later removed).
+  webengine_widevine: True

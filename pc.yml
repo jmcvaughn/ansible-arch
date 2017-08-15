@@ -11,19 +11,28 @@
     - { role: macbook, tags: macbook,
         when: ansible_product_name | search('MacBook') }
 
-    - { role: cups, tags: cups }
+    # Fonts (potential pre-requisite for multiple roles)
     - { role: fonts, tags: fonts }
 
     # i3 requires xorg
     - { role: xorg, tags: xorg }
     - { role: i3, tags: i3 }
+    - { role: autologin, tags: autologin }
 
+    # System essential
     - { role: pulseaudio, tags: pulseaudio }
-    - { role: qutebrowser, tags: qutebrowser }
-    - { role: chromium, tags: chromium }
-    - { role: firefox, tags: firefox }
+    - { role: wifi, tags: wifi }
+    - { role: cups, tags: cups }
+
+    # Packages
+    - { role: packages, tags: packages }
+
+    # Browsers
+    - { role: qutebrowser, tags: qutebrowser,
+        when: qutebrowser.install is sameas True }
+    - { role: firefox, tags: firefox, when: firefox.install is sameas True }
+    - { role: chromium, tags: chromium, when: chromium.install is sameas True }
+
+    # Other non-essential package roles
     - { role: libreoffice, tags: libreoffice }
     - { role: texlive, tags: texlive }
-    - { role: packages, tags: packages }
-    - { role: wifi, tags: wifi }
-    - { role: autologin, tags: autologin }

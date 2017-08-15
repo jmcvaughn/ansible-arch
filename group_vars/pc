@@ -1,13 +1,10 @@
 autologin: True
 
-chromium:
-  widevine: True
-
 fonts:
   windows: True
 
 firefox:
-  install: False
+  install: True
   lang: en-gb
 
 libreoffice:
@@ -18,6 +15,10 @@ pacman:
   repos:
     # For brother-hll2340dw printer drivers
     - multilib
+
+qutebrowser:
+  install: True
+  webengine_widevine: True
 
 xorg:
   x11_keymap: gb pc105
