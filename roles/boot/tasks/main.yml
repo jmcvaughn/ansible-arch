@@ -6,6 +6,7 @@
 - name: Check backup boot partition is in use
   command: awk -F '[[:space:]]+' '/\/boot\.bak/ { print $2 }' /etc/fstab
   register: backup_part
+  changed_when: False
 
 - name: Add bootsync hook and script
   include: bootsync.yml

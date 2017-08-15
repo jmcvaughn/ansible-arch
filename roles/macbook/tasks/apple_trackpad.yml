@@ -2,6 +2,7 @@
   stat:
     path: /etc/X11/xorg.conf.d/
   register: xorg_conf_d
+  changed_when: False
 
 - name: Copy Apple trackpad configuration file
   copy:
