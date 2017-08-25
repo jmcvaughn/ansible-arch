@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Cleaning pacman cache (remove uninstalled)...
+When = PostTransaction
+Exec = /usr/bin/paccache --remove --uninstalled --keep 0

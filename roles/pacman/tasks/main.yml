@@ -15,3 +15,11 @@
   with_items: '{{ pacman.repos }}'
   notify: Update pacman cache
   when: pacman.repos is defined
+
+- name: Add paccache hooks
+  copy:
+    src: '{{ item }}'
+    dest: /etc/pacman.d/hooks/
+  with_items:
+    - 99-paccache_remove.hook
+    - 99-paccache_upgrade.hook

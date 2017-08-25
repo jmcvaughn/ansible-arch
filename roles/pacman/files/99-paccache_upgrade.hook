@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Cleaning pacman cache (keep latest 3 of installed packages)...
+When = PostTransaction
+Exec = /usr/bin/paccache --remove
