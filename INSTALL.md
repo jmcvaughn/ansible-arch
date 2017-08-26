@@ -93,11 +93,25 @@ a script run by a custom pacman hook; see the bootsync hook and script in the
 `boot` role.
 
 #### Root file system (Btrfs)
-The maximum currently supported Btrfs sector size is 4096 bytes; this is
-recommended if installing on an SSD or Advanced Format disks, otherwise it can
-be omitted. If you're not using encryption, specify the partition instead.
-Create the file system as follows (specifying the raw partition if encryption
-isn't being used):
+Ideally, file system sector size should match the block/sector/page size of the
+underlying block device. This is a complex subject, so to summarise:
+- If you don't specify a file system sector size, the `mkfs` utilities will use
+  the logical block size as specified in
+  `/sys/block/sdX/queue/logical_block_size`. This may be suboptimal; refer to
+  the physical block size.
+- You can verify the *reported* physical block size by reading
+  `/sys/block/sdX/queue/physical_block_size`. However, some disks (particularly
+  SSDs) will not report this accurately. You may need to refer to the
+  specifications of the disk or flash memory (for SSDs) to find the correct
+  value.
+- Most modern SSD controllers will have fairly decent emulation capabilities for
+  smaller block sizes. If page/sector/block size of the device cannot be
+  determined, a sector size of 4096 for all disk types is often an *acceptable*
+  default.
+ 
+If you're not using encryption, specify the partition instead of the mapped
+device. Create the file system as follows (specifying the raw partition if
+encryption isn't being used):
 ```
 # mkfs.btrfs --sectorsize 4096 --force /dev/mapper/archcrypt1
 ```
@@ -109,13 +123,13 @@ The same applies for mirrors:
 
 Create the subvolumes (specifying only one of the devices in the file system):
 ```
-# mount -t btrfs -o noatime,compress=lzo /dev/mapper/archcrypt1 /mnt/ && for i in root var home; do btrfs subvolume create /mnt/$i/; done && umount /mnt/
+# mount -t btrfs -o compress=lzo /dev/mapper/archcrypt1 /mnt/ && for i in root var home; do btrfs subvolume create /mnt/$i/; done && umount /mnt/
 ```
 
 ### Mounting partitions
 Mount the root subvolume:
 ```
-# mount -t btrfs -o noatime,compress=lzo,subvol=root /dev/mapper/archcrypt1 /mnt/
+# mount -t btrfs -o compress=lzo,subvol=root /dev/mapper/archcrypt1 /mnt/
 ```
 
 Create the mount points:
@@ -130,13 +144,44 @@ Create the backup ESP mount point if required:
 
 Mount the partitions:
 ```
-# mount /dev/sda1 /mnt/boot/; for i in var home; do mount -t btrfs -o noatime,compress=lzo,subvol=$i /dev/mapper/archcrypt1 /mnt/$i/ done
+# mount /dev/sda1 /mnt/boot/; for i in var home; do mount -t btrfs -o compress=lzo,subvol=$i /dev/mapper/archcrypt1 /mnt/$i/ done
 ```
 
 Mount the backup ESP if required:
 ```
 # mount /dev/sdb1 /mnt/boot.bak/
 ```
+
+### Other performance options
+#### I/O schedulers
+The default I/O scheduler, CFQ (Completely Fair Queueing) is recommended for
+most use cases using the stock kernel, regardless of whether an SSD or
+mechanical disk is in use. Its performance is generally competitive with the
+`noop` and `deadline` schedulers on SSDs, while offering better performance for
+mechanical disks and of course requiring no prior configuration.
+
+This guide won't cover changing schedulers in any more detail unless the
+configurations for my own systems are changed accordingly. However, it is
+recommended that you **do not** set the I/O scheduler using the `elevator`
+kernel parameter in the bootloader entry as this will be set globally for all
+block devices. Instead, refer to the [Debian Wiki page on SSD
+optimisation](https://wiki.debian.org/SSDOptimization#Low-Latency_IO-Scheduler)
+to set the scheduler for individual drives or groups of drives using either
+sysfsutils or udev rules. These I/O schedulers do not apply to NVMe SSDs and ZFS
+file systems; the former uses blk-mq [(see the Thomas-Krenn Wiki for
+details](https://www.thomas-krenn.com/en/wiki/Linux_Multi-Queue_Block_IO_Queueing_Mechanism_(blk-mq)),
+while the latter uses its own scheduler, setting the kernel I/O scheduler for
+zpool devices to `noop` (this can be verified by reading the value stored in
+`/sys/block/sdX/queue/scheduler` for the member device).
+
+#### Mount options
+The default mount options used by Btrfs are recommended for most use cases.
+Btrfs will automatically detect and set the correct options if being run on an
+SSD.
+
+There is little performance benefit specifying `noatime`. This will, however
+introduce issues with applications that require access times (e.g. some mail
+clients).
 
 ## Generate mirrorlist
 If you used the `create_arch_iso.sh` script to create an installation image,
@@ -186,7 +231,7 @@ title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
-options DEVICES rw rootflags=subvol=root elevator=noop
+options DEVICES rw rootflags=subvol=root
 ```
 
 #### Specifying devices

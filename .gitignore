@@ -1,2 +1,5 @@
 # Ansible .retry file (created on failed playbook run)
 *.retry
+
+# HTML files (generated locally when previewing Markdown)
+*.html
