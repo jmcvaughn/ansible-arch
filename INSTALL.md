@@ -123,13 +123,13 @@ The same applies for mirrors:
 
 Create the subvolumes (specifying only one of the devices in the file system):
 ```
-# mount -t btrfs -o compress=lzo /dev/mapper/archcrypt1 /mnt/ && for i in root var home; do btrfs subvolume create /mnt/$i/; done && umount /mnt/
+# mount -o compress=lzo /dev/mapper/archcrypt1 /mnt/ && for i in root var home; do btrfs subvolume create /mnt/$i/; done && umount /mnt/
 ```
 
 ### Mounting partitions
 Mount the root subvolume:
 ```
-# mount -t btrfs -o compress=lzo,subvol=root /dev/mapper/archcrypt1 /mnt/
+# mount -o compress=lzo,subvol=root /dev/mapper/archcrypt1 /mnt/
 ```
 
 Create the mount points:
@@ -144,7 +144,7 @@ Create the backup ESP mount point if required:
 
 Mount the partitions:
 ```
-# mount /dev/sda1 /mnt/boot/; for i in var home; do mount -t btrfs -o compress=lzo,subvol=$i /dev/mapper/archcrypt1 /mnt/$i/ done
+# mount /dev/sda1 /mnt/boot/; for i in var home; do mount -o compress=lzo,subvol=$i /dev/mapper/archcrypt1 /mnt/$i/; done
 ```
 
 Mount the backup ESP if required:
@@ -262,9 +262,9 @@ Append the following to the options line if applicable:
 
 ## For Nvidia systems: blacklist nouveau
 If specified, ansible-arch installs the proprietary Nvidia driver---my system
-runs Maxwell cards, for which features and performance is currently poor for the
-`nouveau` driver. `nouveau` causes `lspci`, and thus Ansible, to get
-stuck while gathering facts. Run the following to blacklist `nouveau`:
+runs Maxwell cards, for which features and performance are currently poor for
+the `nouveau` driver. `nouveau` causes `lspci`, and thus Ansible, to get stuck
+while gathering facts. Run the following to blacklist `nouveau`:
 ```
 # echo blacklist nouveau > /mnt/etc/modprobe.d/blacklist.conf
 ```
@@ -280,7 +280,7 @@ installation:
 ```
 
 ## Set mkinitcpio hooks
-Comment out the `HOOKS` line in `/mnt/etc/mkinitcpio.conf` and add the follwing
+Comment out the `HOOKS` line in `/mnt/etc/mkinitcpio.conf` and add the following
 `HOOKS` line for unencrypted installations:
 ```
 HOOKS="base systemd autodetect modconf sd-vconsole keyboard block filesystems fsck"
@@ -288,7 +288,7 @@ HOOKS="base systemd autodetect modconf sd-vconsole keyboard block filesystems fs
 
 Or the following `HOOKS` line for encrypted installations:
 ```
-HOOKS="base systemd autodetect modconf sd-vconsole keyboard block filesystems fsck"
+HOOKS="base systemd autodetect modconf sd-vconsole keyboard block sd-encrypt filesystems fsck"
 ```
 
 ## Configuration while chrooted into the installation
