@@ -1,0 +1,42 @@
+autologin: True
+
+firefox:
+  install: True
+  lang: en-gb
+
+libreoffice:
+  lang: en-GB
+  hyphen_lang: en
+
+qutebrowser:
+  install: True
+  webengine_widevine: True
+
+xorg:
+  x11_keymap: gb pc105
+  mouse_config: True
+
+# packages
+packages:
+  repos:
+    - imv
+    - picocom
+    - rofi
+    - screenfetch
+    - termite
+    - xclip
+    - xdg-utils
+    # mpv
+    - mpv
+    - youtube-dl
+    # Syncthing
+    - syncthing
+    - syncthing-inotify
+    # remmina
+    - remmina
+    - libvncserver
+    # zathura
+    - zathura
+    - zathura-pdf-mupdf
+
+# vim: filetype=yaml
