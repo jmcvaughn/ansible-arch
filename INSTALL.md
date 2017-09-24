@@ -197,9 +197,9 @@ generating a mirrorlist.
 # pacstrap /mnt/ base intel-ucode dosfstools btrfs-progs termite-terminfo openssh ansible
 ```
 
-Of course, omit `intel-ucode` for non-Intel systems. For AMD systems, microcode
-updates are provided by `linux-firmware`, installed as part of the default
-`base` package group.
+Omit `intel-ucode` for virtual machines and non-Intel systems. For AMD systems,
+microcode updates are provided by `linux-firmware`, installed as part of the
+default `base` package group.
 
 ## Generate fstab
 ```
@@ -225,7 +225,8 @@ Add `timeout 3` if you are dual booting. systemd-boot will pick up the Windows
 Boot Loader.
 
 ### Create the boot entry
-Create the following boot entry in `/mnt/boot/loader/entries/archlinux.conf`:
+Create the following boot entry in `/mnt/boot/loader/entries/archlinux.conf`,
+removing the intel-ucode RAM disk entry if installing on a virtual machine:
 ```
 title   Arch Linux
 linux   /vmlinuz-linux
