@@ -12,7 +12,7 @@
     name: '{{ item }}'
     user: '{{ user.name }}'
   with_items:
-    - i3-gaps-git
+    - i3-gaps
     - polybar
     # Single colour backgrounds
     - hsetroot
