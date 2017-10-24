@@ -23,6 +23,8 @@ packages_all:
   aur:
     - cower
     - pacaur
+  repos:
+    - nfs-utils
 
 time:
   hwclock: UTC
