@@ -1,0 +1,10 @@
+- name: Install Open vSwitch
+  pacman:
+    name: openvswitch
+    state: present
+
+- name: Enable and start Open vSwitch service
+  systemd:
+    name: ovs-vswitchd.service
+    enabled: True
+    state: started
