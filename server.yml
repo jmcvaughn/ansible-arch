@@ -6,4 +6,3 @@
   roles:
     - { role: packages, tags: packages }
     - { role: zfs, tags: zfs }
-    - { role: openvswitch, tags: openvswitch }

@@ -1,13 +1,10 @@
 hostname: jvaughnserver
 
-packages_jvaughnserver:
+packages:
   repos:
     - python2-virtualenv
-
-packages:
   aur_keys: '{{ packages_all.aur_keys }}'
   aur: '{{ packages_all.aur }}'
-  repos: '{{ packages_jvaughnserver.repos }} + {{ packages_all.repos }}'
 
 smartd:
   schedule: (L/../../6/05|S/../../[1-5]/05|S/../../7/05)

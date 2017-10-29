@@ -1,0 +1,10 @@
+- name: Install nfs-utils
+  pacman:
+    name: nfs-utils
+    state: present
+
+- name: Enable and start nfs-server service
+  systemd:
+    name: nfs-server.service
+    enabled: True
+    state: started

@@ -28,8 +28,12 @@
     - { role: base_utils, tags: base_utils }
     - { role: neovim, tags: neovim }
     - { role: dictionaries, tags: dictionaries }
-    - { role: virt, tags: virt }
     - { role: docker, tags: docker }
+
+    # Not true dependencies of virt role
+    - { role: nfs-server, tags: nfs-server }
+    - { role: openvswitch, tags: openvswitch }
+    - { role: virt, tags: virt }
 
     # smartd requires postfix
     - { role: postfix, tags: postfix }
