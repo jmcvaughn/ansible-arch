@@ -31,7 +31,6 @@ packages_pc:
     - pandoc
     - picocom
     - rofi
-    - screenfetch
     - termite
     - virt-manager
     - xclip
@@ -55,6 +54,7 @@ packages_pc:
     - zathura-pdf-mupdf
   aur:
     - brother-hll2340dw
+    - neofetch
     - telegram-desktop-bin
       # iOS utilities
     - ideviceinstaller-git
