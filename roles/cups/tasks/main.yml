@@ -5,7 +5,6 @@
       - cups-pdf
       - ghostscript
       - gsfonts
-      - gtk3-print-backends
 
 - name: Enable and start CUPS service
   systemd:
