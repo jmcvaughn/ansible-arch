@@ -32,10 +32,6 @@
     mode: 0440
     validate: 'visudo --check --file=%s'
 
-- name: Install ICC profile components
-  include: icc.yml
-  when: ansible_product_name | match('MacBookAir6,2')
-
 - name: Install FaceTime HD (Broadcom 1570) webcam firmware and driver
   include: macbook_webcam.yml
   when:

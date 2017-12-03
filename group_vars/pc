@@ -27,6 +27,7 @@ xorg:
 # packages
 packages_pc:
   repos:
+    - displaycal
     - imv
     - pandoc
     - picocom
