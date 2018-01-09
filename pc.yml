@@ -35,4 +35,3 @@
 
     # Other non-essential package roles
     - { role: libreoffice, tags: libreoffice }
-    - { role: texlive, tags: texlive }

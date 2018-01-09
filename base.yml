@@ -29,6 +29,7 @@
     - { role: neovim, tags: neovim }
     - { role: dictionaries, tags: dictionaries }
     - { role: docker, tags: docker }
+    - { role: texlive, tags: texlive }
 
     # Not true dependencies of virt role
     - { role: nfs-server, tags: nfs-server }
