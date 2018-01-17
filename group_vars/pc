@@ -27,6 +27,7 @@ xorg:
 # packages
 packages_pc:
   repos:
+    - android-tools
     - displaycal
     - imv
     - pandoc
@@ -36,8 +37,6 @@ packages_pc:
     - virt-manager
     - xclip
     - xdg-utils
-    # ifuse installs all iOS utilities
-    - ifuse
     # IPMI utilities
     - ipmitool
     - icedtea-web
@@ -57,8 +56,6 @@ packages_pc:
     - brother-hll2340dw
     - neofetch
     - telegram-desktop-bin
-      # iOS utilities
-    - ideviceinstaller-git
 
 # Combine lists, packages_all refers to packages for 'all' group
 packages:
