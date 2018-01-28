@@ -30,6 +30,7 @@
     - { role: dictionaries, tags: dictionaries }
     - { role: docker, tags: docker }
     - { role: texlive, tags: texlive }
+    - { role: android_tools, tags: android_tools }
 
     # Not true dependencies of virt role
     - { role: nfs-server, tags: nfs-server }

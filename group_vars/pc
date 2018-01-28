@@ -27,7 +27,6 @@ xorg:
 # packages
 packages_pc:
   repos:
-    - android-tools
     - displaycal
     - imv
     - pandoc
