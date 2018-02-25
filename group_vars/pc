@@ -32,6 +32,7 @@ packages_pc:
     - pandoc
     - picocom
     - rofi
+    - syncthing
     - termite
     - virt-manager
     - xclip
@@ -42,9 +43,6 @@ packages_pc:
     # mpv
     - mpv
     - youtube-dl
-    # Syncthing
-    - syncthing
-    - syncthing-inotify
     # remmina
     - remmina
     - libvncserver
