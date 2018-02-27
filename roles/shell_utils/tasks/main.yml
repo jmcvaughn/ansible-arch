@@ -1,13 +1,15 @@
-- name: Install bash and zsh with completion
+- name: Install bash and zsh with completion and other shell utilities
   pacman:
     name:
       - bash-completion
       - zsh
       - zsh-completions
       - zsh-syntax-highlighting
-      - tree
       # bash part of base group, included for completeness
       - bash
+      # Shell utilities
+      - source-highlight      # For syntax highlighting in less
+      - tree
     state: present
 
 - name: Install and configure pkgfile
