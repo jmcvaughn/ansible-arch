@@ -11,10 +11,19 @@ If you are already running Arch Linux, you can run the `create_arch_iso.sh`
 script as root to create an installation image with the following changes:
 - `sshd.socket` enabled to allow SSH access
 - root user password set to `archiso`
-- `termite-terminfo` installed to allow SSH via Termite terminal emulator to
-  work correctly
 - Current mirrorlist copied to `/root/mirrorlist` (see [Generate
   mirrorlist](#generate-mirrorlist))
+
+## Guidance: Terminal issues (e.g. repeated characters)
+This will most likely be caused by missing terminfo definitions for your
+terminal emulator if accessing via SSH. There are a few options:
+- Copy the correct terminfo file temporarily into `/usr/share/terminfo/` (root
+  user won't load terminfo definitions from `~/.terminfo/`).
+- Use a multiplexer such as tmux, which abstracts the underlying terminal
+  emulator.
+- Set the terminal emulator to identify itself as a compatible terminal
+  emulator, loading a terminfo definition that already exists in
+  `/usr/share/terminfo/` on the client (may cause further issues).
 
 ## Optional: load keymap
 If accessing the machine locally, set the relevant keymap, e.g. `loadkeys uk`
@@ -194,7 +203,7 @@ generating a mirrorlist.
 
 ## Install base operating system
 ```
-# pacstrap /mnt/ base intel-ucode dosfstools btrfs-progs termite-terminfo openssh ansible
+# pacstrap /mnt/ base intel-ucode dosfstools btrfs-progs openssh ansible
 ```
 
 Of course, omit `intel-ucode` for non-Intel systems. For AMD systems, microcode

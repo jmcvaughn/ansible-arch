@@ -18,9 +18,6 @@ mkdir $archisodir
 # Copy archiso contents to directory
 cp -r /usr/share/archiso/configs/releng/* $archisodir
 
-# Add packages
-echo "termite-terminfo" >> $archisodir/packages.x86_64
-
 # Add console device
 for i in {$bootentrycd,$bootentryusb}; do
     sed -i '/^options/ s/$/ console=ttyS0/' $i
