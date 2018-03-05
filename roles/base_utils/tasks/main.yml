@@ -2,7 +2,6 @@
   pacman:
     name:
       - archiso
-      - dtach
       - efibootmgr
       - htop
       - lm_sensors

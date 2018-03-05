@@ -33,7 +33,6 @@ packages_pc:
     - picocom
     - rofi
     - syncthing
-    - termite
     - virt-manager
     - xclip
     - xdg-utils
@@ -51,6 +50,7 @@ packages_pc:
     - zathura-pdf-mupdf
   aur:
     - brother-hll2340dw
+    - kitty-git
     - neofetch
     - telegram-desktop-bin
 

@@ -10,6 +10,7 @@
       # Shell utilities
       - source-highlight      # For syntax highlighting in less
       - tree
+      - tmux
     state: present
 
 - name: Install and configure pkgfile
