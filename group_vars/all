@@ -17,6 +17,8 @@ neovim:
   vim_spell: en
 
 packages_all:
+  repos:
+    - sipcalc
   aur_keys:
     # falconindy - cower
     - '0xF56C0C53'

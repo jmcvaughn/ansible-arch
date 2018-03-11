@@ -56,7 +56,7 @@ packages_pc:
 
 # Combine lists, packages_all refers to packages for 'all' group
 packages:
-  repos: '{{ packages_pc.repos }}'
+  repos: '{{ packages_pc.repos }} + {{ packages_all.repos }}'
   aur_keys: '{{ packages_all.aur_keys }}'
   aur: '{{ packages_pc.aur }} + {{ packages_all.aur }}'
 
