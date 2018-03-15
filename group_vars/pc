@@ -50,7 +50,6 @@ packages_pc:
     - zathura-pdf-mupdf
   aur:
     - brother-hll2340dw
-    - kitty-git
     - neofetch
     - telegram-desktop-bin
 

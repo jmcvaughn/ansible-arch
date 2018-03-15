@@ -19,6 +19,9 @@
     - { role: i3, tags: i3 }
     - { role: autologin, tags: autologin }
 
+    # kitty (terminal emulator)
+    - { role: kitty, tags: kitty }
+
     # System essential
     - { role: pulseaudio, tags: pulseaudio }
     - { role: wifi, tags: wifi }
