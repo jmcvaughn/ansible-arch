@@ -26,6 +26,6 @@
     marker: '# {mark} Ansible-managed block: Add OVMF paths to libvirt QEMU configuration'
     block: |
       nvram = [
-          "/usr/share/ovmf/ovmf_code_x64.bin:/usr/share/ovmf/ovmf_vars_x64.bin"
+          "/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"
       ]
   notify: Restart libvirtd service
