@@ -155,7 +155,7 @@ $ ansible-playbook pc.yml -i hosts -e host=HOST -K --ask-vault-pass
 If required, substitute the playbook for your own or `server.yml`. Substitute
 `HOST` for the name of the system as defined in the `hosts` file and in the
 corresponding `host_vars/` file. `--ask-vault-pass` can be omitted if the
-playbook run does use any Vault-encrypted files.
+playbook run doesn't use any Vault-encrypted files.
 
 If running the `wifi` role for the first time, reboot the system to apply the
 configuration (or unload and reload the appropriate modules and start the
