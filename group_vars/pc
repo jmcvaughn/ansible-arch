@@ -1,14 +1,14 @@
 autologin: True
 
+i18n: en-gb
+
 fonts:
   windows: True
 
 firefox:
   install: True
-  lang: en-gb
 
 libreoffice:
-  lang: en-GB
   hyphen_lang: en
 
 pacman:

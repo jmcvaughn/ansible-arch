@@ -2,7 +2,7 @@
   pacman:
     name:
       - libreoffice-fresh
-      - 'libreoffice-fresh-{{ libreoffice.lang }}'
+      - 'libreoffice-fresh-{{ i18n }}'
       - 'hyphen-{{ libreoffice.hyphen_lang }}'
       - libmythes
     state: present

@@ -1,4 +1,3 @@
 libreoffice:
-  # Language settings must match package name, e.g. libreoffice-fresh-en-GB
-  lang: en-GB
+  # Language settings must match package name, e.g. libreoffice-fresh-en-gb
   hyphen_lang: en

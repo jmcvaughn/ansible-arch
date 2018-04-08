@@ -174,7 +174,11 @@ the following two circumstances:
 - When an alias has been specified for a package, e.g. `libreoffice-fresh-en-gb`
   rather than `libreoffice-fresh-en-GB`. Hopefully this will be fixed in future
   releases, as it would allow a single internationalisation (i18n) setting to be
-  used globally.
+  used globally. **Note: As of April 2018, the `libreoffice-fresh-en-GB` package
+  has been removed and `libreoffice-fresh-en-gb` is now the official package. An
+  `i18n` role has been created as a dependency of the `libreoffice` and
+  `firefox` roles.** The pacman Ansible alias problem may still exist; this
+  hasn't been tested.
 
 ## Future enhancements (in vague order of priority)
 - [ ] Incorporate [iptables](https://wiki.archlinux.org/index.php/iptables) or
