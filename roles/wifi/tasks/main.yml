@@ -40,11 +40,4 @@
   with_items:
     - systemd-networkd.service
     - 'wpa_supplicant@{{ wifi.interface }}.service'
-    - systemd-resolved.service
 
-- name: Symlink systemd-resolved resolv.conf
-  file:
-    path: /etc/resolv.conf
-    src: /run/systemd/resolve/resolv.conf
-    state: link
-    force: True

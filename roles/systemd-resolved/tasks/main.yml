@@ -1,0 +1,13 @@
+- name: Symlink systemd-resolved stub-resolv.conf
+  file:
+    path: /etc/resolv.conf
+    src: /run/systemd/resolve/stub-resolv.conf
+    state: link
+    force: True
+
+- name: Enable systemd-resolved.service
+  systemd:
+    name: systemd-resolved.service
+    enabled: True
+    state: started
+
