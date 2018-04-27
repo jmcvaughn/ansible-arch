@@ -2,7 +2,6 @@ hostname: jvaughnserver
 
 packages:
   repos:
-    - networkmanager
     - python2-virtualenv
   aur_keys: '{{ packages_all.aur_keys }}'
   aur: '{{ packages_all.aur }}'
