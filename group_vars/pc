@@ -28,6 +28,7 @@ xorg:
 packages_pc:
   repos:
     - displaycal
+    - gimp
     - imv
     - pandoc
     - picocom
@@ -68,3 +69,4 @@ wifi_pc:
 wifi: '{{ wifi_pc | combine(wifi_local) }}'
 
 # vim: filetype=yaml
+
