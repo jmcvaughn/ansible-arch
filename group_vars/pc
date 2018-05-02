@@ -51,6 +51,7 @@ packages_pc:
     - zathura-pdf-mupdf
   aur:
     - brother-hll2340dw
+    - drawio-desktop-bin
     - neofetch
     - telegram-desktop-bin
 
