@@ -34,6 +34,7 @@ packages_pc:
     - picocom
     - rofi
     - syncthing
+    - telegram-desktop
     - virt-manager
     - xclip
     - xdg-utils
@@ -53,7 +54,6 @@ packages_pc:
     - brother-hll2340dw
     - drawio-desktop-bin
     - neofetch
-    - telegram-desktop-bin
 
 # Combine lists, packages_all refers to packages for 'all' group
 packages:
