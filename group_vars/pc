@@ -69,5 +69,5 @@ wifi_pc:
 # host_vars/
 wifi: '{{ wifi_pc | combine(wifi_local) }}'
 
-# vim: filetype=yaml
+# vim: set filetype=yaml:
 

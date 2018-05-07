@@ -10,4 +10,5 @@ wifi_local:
 smartd:
   schedule: (L/../../6/19|S/../../[1-5]/19|S/../../7/19)
 
-# vim: filetype=yaml
+# vim: set filetype=yaml:
+

@@ -30,4 +30,5 @@ time:
   hwclock: UTC
   timezone: Europe/London
 
-# vim: filetype=yaml
+# vim: set filetype=yaml:
+

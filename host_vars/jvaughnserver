@@ -12,4 +12,5 @@ smartd:
 zfs:
   zfs_linux_git: False
 
-# vim: filetype=yaml
+# vim: set filetype=yaml:
+

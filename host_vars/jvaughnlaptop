@@ -12,4 +12,5 @@ smartd:
 tlp:
   btrfs_fix: False
 
-# vim: filetype=yaml
+# vim: set filetype=yaml:
+
