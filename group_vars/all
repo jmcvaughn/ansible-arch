@@ -19,12 +19,8 @@ neovim:
 packages_all:
   repos:
     - sipcalc
-  aur_keys:
-    # falconindy - cower
-    - '0xF56C0C53'
   aur:
-    - cower
-    - pacaur
+    - pikaur
 
 time:
   hwclock: UTC

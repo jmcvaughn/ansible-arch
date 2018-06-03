@@ -72,7 +72,7 @@ The recommended way around this problem is to:
 
 For combining lists a similar principle applies using the `+` operator. Using
 the `packages` role as an example:
-- In `group_vars/all`: `packages_all.aur: ['cower', 'pacaur']`
+- In `group_vars/all`: `packages_all.aur: ['pikaur']`
 - In `group_vars/pc`: `packages_pc.aur: ['telegram-desktop-bin',
   'ideviceinstaller-git']`
 - In `group_vars/pc` to combine: `packages.aur: '{{ packages_pc.aur }} + {{

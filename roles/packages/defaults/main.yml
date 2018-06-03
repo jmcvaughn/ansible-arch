@@ -11,8 +11,6 @@ packages: None
   #    - xclip
   #    - xdg-utils
   #  aur_keys:
-  #    # falconindy - cower
-  #    - '0xF56C0C53'
+  #    - <key>
   #  aur:
-  #    - cower
-  #    - pacaur
+  #    - pikaur
