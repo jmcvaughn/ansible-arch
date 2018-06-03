@@ -16,6 +16,11 @@
   notify: Update pacman cache
   when: pacman.repos is defined
 
+- name: Install pacman-contrib (for paccache hooks)
+  pacman:
+    name: pacman-contrib
+    state: present
+
 - name: Add paccache hooks
   copy:
     src: '{{ item }}'
@@ -23,3 +28,4 @@
   with_items:
     - 99-paccache_remove.hook
     - 99-paccache_upgrade.hook
+
