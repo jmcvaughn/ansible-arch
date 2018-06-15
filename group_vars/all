@@ -18,6 +18,7 @@ neovim:
 
 packages_all:
   repos:
+    - ipmitool
     - sipcalc
   aur:
     - pikaur

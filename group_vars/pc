@@ -38,8 +38,7 @@ packages_pc:
     - virt-manager
     - xclip
     - xdg-utils
-    # IPMI utilities
-    - ipmitool
+    # For IPMI KVM
     - icedtea-web
     # mpv
     - mpv
