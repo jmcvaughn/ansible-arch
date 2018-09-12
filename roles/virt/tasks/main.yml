@@ -7,7 +7,6 @@
       - bridge-utils
       - dmidecode
       - dnsmasq
-      - ebtables
       - openbsd-netcat
       - qemu-headless
       # To create virtual machines
