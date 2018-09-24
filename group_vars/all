@@ -22,6 +22,7 @@ packages_all:
     - sipcalc
   aur:
     - pikaur
+    - slack-desktop
 
 time:
   hwclock: UTC
