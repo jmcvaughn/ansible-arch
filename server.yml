@@ -1,4 +1,5 @@
-- include: base.yml
+- name: Import base playbook
+  import_playbook: base.yml
 
 - hosts: '{{ host }}'
   become: True
@@ -6,3 +7,4 @@
   roles:
     - { role: packages, tags: packages }
     - { role: zfs, tags: zfs }
+

@@ -6,7 +6,7 @@
 
 - name: Copy Apple trackpad configuration file
   tags: xorg
-  include: apple_trackpad.yml
+  import_tasks: apple_trackpad.yml
 
 - name: Swap alt/cmd keys on Apple keyboard
   lineinfile:
@@ -33,7 +33,7 @@
     validate: 'visudo --check --file=%s'
 
 - name: Install FaceTime HD (Broadcom 1570) webcam firmware and driver
-  include: macbook_webcam.yml
+  import_tasks: macbook_webcam.yml
   when:
     - ansible_product_name | match('MacBookAir6,2')
     - macbook.webcam is sameas False

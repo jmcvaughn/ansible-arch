@@ -16,11 +16,11 @@
 - meta: flush_handlers
 
 - name: Install zfs-linux
-  include: zfs_linux.yml
+  import_tasks: zfs_linux.yml
   when: zfs.zfs_linux_git is sameas False
 
 - name: Install zfs-linux-git
-  include: zfs_linux_git.yml
+  import_tasks: zfs_linux_git.yml
   when: zfs.zfs_linux_git is sameas True
 
 - meta: flush_handlers

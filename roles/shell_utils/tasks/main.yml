@@ -14,4 +14,4 @@
     state: present
 
 - name: Install and configure pkgfile
-  include: pkgfile.yml
+  import_tasks: pkgfile.yml

@@ -1,4 +1,5 @@
-- include: base.yml
+- name: Import base playbook
+  import_playbook: base.yml
 
 - hosts: '{{ host }}'
   become: True
@@ -38,3 +39,4 @@
 
     # Other non-essential package roles
     - { role: libreoffice, tags: libreoffice }
+

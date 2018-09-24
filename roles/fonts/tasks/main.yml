@@ -11,5 +11,5 @@
     user: '{{ user.name }}'
 
 - name: Install Windows fonts
-  include: windows_fonts.yml
+  import_tasks: windows_fonts.yml
   when: fonts.windows is sameas True

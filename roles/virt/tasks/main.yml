@@ -16,7 +16,7 @@
     state: present
 
 - name: Configure libvirt and QEMU/KVM
-  include: configure.yml
+  import_tasks: configure.yml
 
 - meta: flush_handlers
 

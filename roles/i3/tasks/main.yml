@@ -26,4 +26,5 @@
     state: present
 
 - name: Configure i3lock on suspend service
-  include: i3lock_suspend.yml
+  import_tasks: i3lock_suspend.yml
+
