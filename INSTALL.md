@@ -31,6 +31,15 @@ for a British keyboard. See the [ArchWiki page on console
 keymaps](https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console#Temporary_configuration)
 for further details.
 
+## Optional: connect to Wi-Fi (Broadcom)
+If the machine uses a Broadcom Wi-Fi adaptor that uses the `broadcom-wl` driver,
+unload conflicting modules and reload the `wl` module as follows:
+```
+# rmmod b43 ssb bcma wl && modprobe wl
+```
+
+Connect to the desired network using `wifi-menu`.
+
 ## Update the system clock
 ```
 # timedatectl set-ntp true
