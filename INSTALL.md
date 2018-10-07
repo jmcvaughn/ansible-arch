@@ -187,7 +187,7 @@ optimisation](https://wiki.debian.org/SSDOptimization#Low-Latency_IO-Scheduler)
 to set the scheduler for individual drives or groups of drives using either
 sysfsutils or udev rules. These I/O schedulers do not apply to NVMe SSDs and ZFS
 file systems; the former uses blk-mq [(see the Thomas-Krenn Wiki for
-details](https://www.thomas-krenn.com/en/wiki/Linux_Multi-Queue_Block_IO_Queueing_Mechanism_(blk-mq)),
+details)](https://www.thomas-krenn.com/en/wiki/Linux_Multi-Queue_Block_IO_Queueing_Mechanism_(blk-mq)),
 while the latter uses its own scheduler, setting the kernel I/O scheduler for
 zpool devices to `noop` (this can be verified by reading the value stored in
 `/sys/block/sdX/queue/scheduler` for the member device).
