@@ -36,7 +36,6 @@ packages_pc:
     - syncthing
     - telegram-desktop
     - virt-manager
-    - xclip
     - xdg-utils
     # For IPMI KVM
     - icedtea-web
@@ -46,6 +45,8 @@ packages_pc:
     # remmina
     - remmina
     - libvncserver
+    # For tmux configuration in ansible-dotfiles
+    - xclip
     # zathura
     - zathura
     - zathura-pdf-mupdf
