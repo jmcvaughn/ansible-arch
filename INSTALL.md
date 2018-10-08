@@ -366,3 +366,8 @@ desired configuration:
 ## Reboot
 Reboot into the installation to finish, and run ansible-arch as specified in the
 [usage instructions](README.md#usage).
+
+## Connecting to Wi-Fi using wpa_supplicant
+See the [Arch Wiki
+page](https://wiki.archlinux.org/index.php/WPA_supplicant#Connecting_with_wpa_passphrase).
+
