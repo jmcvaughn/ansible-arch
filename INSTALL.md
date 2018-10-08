@@ -212,12 +212,16 @@ generating a mirrorlist.
 
 ## Install base operating system
 ```
-# pacstrap /mnt/ base intel-ucode dosfstools btrfs-progs openssh ansible
+# pacstrap /mnt/ base intel-ucode dosfstools btrfs-progs openssh ansible git
 ```
 
 Of course, omit `intel-ucode` for non-Intel systems. For AMD systems, microcode
 updates are provided by `linux-firmware`, installed as part of the default
 `base` package group.
+
+You may need to install additional network drivers. If the `broadcom-wl` driver
+was installed earlier in the installation process, append it and
+`wpa_supplicant` to the above `pacstrap` command.
 
 ## Generate fstab
 ```
