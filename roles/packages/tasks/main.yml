@@ -1,8 +1,7 @@
 - name: Install packages from Arch repositories
   pacman:
-    name: '{{ item }}'
+    name: '{{ packages.repos }}'
     state: present
-  with_items: '{{ packages.repos }}'
   when: packages.repos is defined
 
 - name: Add AUR keys
