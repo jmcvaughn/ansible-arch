@@ -3,9 +3,9 @@
     name: wpa_supplicant
     state: present
 
-- name: Install Broadcom DKMS driver
+- name: Install Broadcom driver
   pacman:
-    name: broadcom-wl-dkms
+    name: broadcom-wl
     state: present
   when: wifi.broadcom is sameas True
   # Removed automatic loading: unreliable and changes network mid-run
