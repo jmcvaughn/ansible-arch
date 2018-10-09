@@ -20,6 +20,7 @@
   pacman:
     name: pacman-contrib
     state: present
+    update_cache: True
 
 - name: Add paccache hooks
   copy:
