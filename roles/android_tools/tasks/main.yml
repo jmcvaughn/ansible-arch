@@ -4,8 +4,3 @@
       - android-tools
       - android-udev
 
-- name: Add user to plugdev group
-  user:
-    name: '{{ user.name }}'
-    append: True
-    groups: plugdev
