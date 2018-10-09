@@ -8,9 +8,9 @@
   roles:
     # Conditional roles
     - { role: nvidia, tags: nvidia, when: nvidia.install is sameas True }
-    - { role: tlp, tags: tlp, when: ansible_form_factor | match('Notebook') }
+    - { role: tlp, tags: tlp, when: ansible_form_factor is match('Notebook') }
     - { role: macbook, tags: macbook,
-        when: ansible_product_name | search('MacBook') }
+        when: ansible_product_name is search('MacBook') }
 
     # Fonts (potential pre-requisite for multiple roles)
     - { role: fonts, tags: fonts }

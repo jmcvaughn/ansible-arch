@@ -35,5 +35,5 @@
 - name: Install FaceTime HD (Broadcom 1570) webcam firmware and driver
   import_tasks: macbook_webcam.yml
   when:
-    - ansible_product_name | match('MacBookAir6,2')
+    - ansible_product_name is match('MacBookAir6,2')
     - macbook.webcam is sameas False

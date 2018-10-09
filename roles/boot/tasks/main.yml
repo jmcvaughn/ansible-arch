@@ -10,5 +10,5 @@
 
 - name: Add bootsync hook and script
   import_tasks: bootsync.yml
-  when: backup_part.stdout | match('/boot.bak')
+  when: backup_part.stdout is match('/boot.bak')
 
