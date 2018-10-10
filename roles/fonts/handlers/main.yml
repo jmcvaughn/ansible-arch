@@ -1,4 +1,4 @@
 - name: Refresh fontconfig cache
   become: True
-  become_user: '{{ user }}'
+  become_user: '{{ user.name }}'
   command: fc-cache
