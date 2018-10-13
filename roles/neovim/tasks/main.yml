@@ -3,6 +3,11 @@
     name: neovim
     state: present
 
+- name: Check vi and/or vim installed
+  shell: pacman -Qq | egrep '^(vi|vim)$'
+  register: vi_installed
+  failed_when: vi_installed.rc == 2
+
 - name: Uninstall vi and vim
   pacman:
     name:
@@ -10,6 +15,7 @@
       - vim
     state: absent
     recurse: True
+  when: vi_installed.rc == 0
 
 - name: Install neovim-drop-in (replace vi/vim with Neovim)
   aur:
