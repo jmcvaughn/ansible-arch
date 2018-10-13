@@ -1,9 +1,13 @@
+- name: Create local fonts directory
+  file:
+    path: /usr/local/share/fonts/
+    state: directory
+
 - name: Symlink local fonts
   file:
     src: /usr/local/share/fonts/
     dest: /usr/share/fonts/local
     state: link
-    force: True
 
 - name: Copy Windows fonts
   unarchive:
