@@ -38,7 +38,10 @@ unload conflicting modules and reload the `wl` module as follows:
 # rmmod b43 ssb bcma wl && modprobe wl
 ```
 
-Connect to the desired network using `wifi-menu`.
+Connect to the desired network:
+```
+# wifi-menu
+```
 
 ## Update the system clock
 ```
