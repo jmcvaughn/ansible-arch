@@ -21,7 +21,8 @@ qutebrowser:
   webengine_widevine: True
 
 xorg:
-  x11_keymap: gb pc105
+  XkbLayout: gb
+  XkbModel: pc105
   mouse_config: True
 
 # packages

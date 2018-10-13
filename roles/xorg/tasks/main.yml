@@ -7,7 +7,9 @@
       - xorg-xinput
 
 - name: Set correct X11 keymap
-  command: 'localectl --no-convert set-x11-keymap {{ xorg.x11_keymap }}'
+  template:
+    src: 00-keyboard.conf
+    dest: /etc/X11/xorg.conf.d/
 
 - name: Copy pointer configuration file
   copy:
