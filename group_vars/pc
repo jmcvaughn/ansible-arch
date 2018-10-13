@@ -54,6 +54,8 @@ packages_pc:
     - brother-hll2340dw
     - drawio-desktop-bin
     - neofetch
+    # Rofi extensions/plugins
+    - rofi-calc
 
 # Combine lists, packages_all refers to packages for 'all' group
 packages:
