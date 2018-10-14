@@ -305,15 +305,15 @@ installation:
 ```
 
 ## Set mkinitcpio hooks
-Comment out the `HOOKS` line in `/mnt/etc/mkinitcpio.conf` and add the following
-`HOOKS` line for unencrypted installations:
+Modify the `HOOKS` line in `/mnt/etc/mkinitcpio.conf` for unencrypted
+installations:
 ```
-HOOKS=(base systemd autodetect modconf sd-vconsole keyboard block filesystems fsck)
+sed -i 's/^HOOKS=.*$/HOOKS=(base systemd autodetect modconf sd-vconsole keyboard block filesystems fsck)/' /mnt/etc/mkinitcpio.conf
 ```
 
-Or the following `HOOKS` line for encrypted installations:
+Or for encrypted installations:
 ```
-HOOKS=(base systemd autodetect modconf sd-vconsole keyboard block sd-encrypt filesystems fsck)
+sed -i 's/^HOOKS=.*$/HOOKS=(base systemd autodetect modconf sd-vconsole keyboard block sd-encrypt filesystems fsck)/' /mnt/etc/mkinitcpio.conf
 ```
 
 ## Configuration while chrooted into the installation
