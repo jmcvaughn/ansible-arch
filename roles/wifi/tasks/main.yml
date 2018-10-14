@@ -28,7 +28,7 @@
   copy:
     src: 'wpa_supplicant-{{ wifi.interface }}.conf'
     dest: '/etc/wpa_supplicant/wpa_supplicant-{{ wifi.interface }}.conf'
-  notify: Reconfigure wpa_supplicant
+# notify: Reconfigure wpa_supplicant
 
 - name: Enable network services
   systemd:
