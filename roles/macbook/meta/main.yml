@@ -1,3 +1,5 @@
 dependencies:
   - aur_dir
   - generic_handlers
+  - xorg
+
