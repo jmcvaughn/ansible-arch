@@ -233,6 +233,19 @@ was installed earlier in the installation process, append it and
 
 For mirrored setups, add the option `noauto` to the `/boot.bak` entry.
 
+Note that for Btrfs partitions, `genfstab` as run above will create entries like
+this (note the `subvolid` and multiple `subvol` parameters):
+```
+UUID= ... subvolid=257,subvol=/root,subvol=root 0 0
+```
+
+Note that the `subvolid` is not constant; it will change when restoring
+a snapshot. Additionally, one of the `subvol` parameters is redundant. Run the
+following command to strip these parameters from the generated `fstab` file:
+```
+# sed -i 's/subvolid=[0-9][0-9][0-9],subvol=\/.*,//' /mnt/etc/fstab
+```
+
 ## Set up systemd-boot
 ### Install
 ```
