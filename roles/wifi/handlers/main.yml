@@ -20,3 +20,5 @@
 
 - name: Reconfigure wpa_supplicant
   command: wpa_cli reconfigure
+  ignore_errors: True
+
