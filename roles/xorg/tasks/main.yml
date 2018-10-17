@@ -5,6 +5,7 @@
       - xorg-xev
       - xorg-xinit
       - xorg-xinput
+      - xorg-xdpyinfo
 
 - name: Set correct X11 keymap
   template:
