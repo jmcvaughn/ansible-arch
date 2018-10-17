@@ -1,0 +1,19 @@
+- name: Set Bluetooth auto-enable
+  lineinfile:
+    path: /etc/bluetooth/main.conf
+    insertafter: '^#AutoEnable'
+    line: 'AutoEnable=true'
+
+- name: Create bluetooth.service.d directory
+  file:
+    path: /etc/systemd/system/bluetooth.service.d/
+    state: directory
+
+- name: Enable BlueZ Policy plugin
+  copy:
+    src: policy.conf
+    dest: /etc/systemd/system/bluetooth.service.d/policy.conf
+  notify:
+    - Reload systemd daemon
+    - Restart Bluetooth service
+

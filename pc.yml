@@ -18,8 +18,9 @@
     - { role: kitty, tags: kitty }
 
     # System essential
-    - { role: pulseaudio, tags: pulseaudio }
     - { role: wifi, tags: wifi }
+    - { role: bluetooth, tags: bluetooth }
+    - { role: pulseaudio, tags: pulseaudio }
     - { role: cups, tags: cups }
 
     # Packages

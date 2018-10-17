@@ -1,0 +1,15 @@
+- name: Install Bluetooth packages
+  pacman:
+    name:
+      - bluez
+      - bluez-utils
+
+- name: Configure Bluetooth power-on at boot
+  import_tasks: power_on.yml
+
+- name: Enable and start Bluetooth service
+  systemd:
+    name: bluetooth.service
+    enabled: True
+  notify: Restart Bluetooth service
+
