@@ -3,6 +3,11 @@
     name: tlp
     state: present
 
+- name: Mask systemd-rfkill.service
+  systemd:
+    name: systemd-rfkill.service
+    masked: True
+
 # See https://wiki.archlinux.org/index.php/TLP#Btrfs
 - name: Set SATA_LINKPWR_ON_BAT to max_performance (potential Btrfs fix)
   replace:
@@ -22,3 +27,4 @@
   systemd:
     name: tlp-sleep.service
     enabled: True
+
