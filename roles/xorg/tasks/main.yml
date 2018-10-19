@@ -1,11 +1,18 @@
-- name: Install Xorg components
+- name: Install Xorg packages
   pacman:
     name:
       - xorg-server
-      - xorg-xev
       - xorg-xinit
+
+- name: Install Xorg test utilities
+  pacman:
+    name:
+      - xorg-xev
       - xorg-xinput
-      - xorg-xdpyinfo
+
+- name: Install autorandr for monitor hotplugging
+  pacman:
+    name: autorandr
 
 - name: Set correct X11 keymap
   template:
@@ -17,3 +24,4 @@
     src: 30-mouse.conf
     dest: /etc/X11/xorg.conf.d/
   when: xorg.mouse_config is sameas True
+
