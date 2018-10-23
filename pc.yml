@@ -9,6 +9,12 @@
     # Fonts (potential pre-requisite for multiple roles)
     - { role: fonts, tags: fonts }
 
+    # System essential
+    - { role: wifi, tags: wifi }
+    - { role: bluetooth, tags: bluetooth }
+    - { role: pulseaudio, tags: pulseaudio }
+    - { role: cups, tags: cups }
+
     # i3 requires xorg
     - { role: xorg, tags: xorg }
     - { role: i3, tags: i3 }
@@ -16,12 +22,6 @@
 
     # kitty (terminal emulator)
     - { role: kitty, tags: kitty }
-
-    # System essential
-    - { role: wifi, tags: wifi }
-    - { role: bluetooth, tags: bluetooth }
-    - { role: pulseaudio, tags: pulseaudio }
-    - { role: cups, tags: cups }
 
     # Packages
     - { role: packages, tags: packages }
