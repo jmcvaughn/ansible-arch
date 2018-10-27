@@ -16,6 +16,12 @@
   notify: Update pacman cache
   when: pacman.repos is defined
 
+- name: Ignore 'modified' group
+  replace:
+    path: /etc/pacman.conf
+    regexp: '^#IgnoreGroup =$'
+    replace: 'IgnoreGroup = modified'
+
 - name: Install pacman-contrib (for paccache hooks)
   pacman:
     name: pacman-contrib
