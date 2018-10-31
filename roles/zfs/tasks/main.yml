@@ -32,7 +32,9 @@
     state: started
   with_items:
     - zfs-import-cache.service
+    - zfs-import.target
     - zfs-mount.service
     - zfs-share.service
     - zfs-zed.service
     - zfs.target
+
