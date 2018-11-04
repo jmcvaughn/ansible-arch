@@ -1,7 +1,6 @@
 - name: Install kitty
-  aur:
+  pacman:
     name: kitty-git
-    user: '{{ user.name }}'
 
 - name: Install ImageMagick (optional dependency for image rendering)
   pacman:
