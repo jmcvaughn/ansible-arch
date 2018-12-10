@@ -34,7 +34,6 @@ packages_pc:
     - pandoc
     - picocom
     - rofi
-    - syncthing
     - telegram-desktop
     - virt-manager
     - xdg-utils

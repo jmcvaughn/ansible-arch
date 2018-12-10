@@ -20,6 +20,7 @@ packages_all:
   repos:
     - ipmitool
     - sipcalc
+    - syncthing
   aur:
     - pikaur
 
