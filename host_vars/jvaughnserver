@@ -1,9 +1,14 @@
 hostname: jvaughnserver
 
-packages:
+packages_jvaughnserver:
   repos:
     - python2-virtualenv
   aur: '{{ packages_all.aur }}'
+
+# Combine lists, packages_all refers to packages for 'all' group
+packages:
+  repos: '{{ packages_jvaughnserver.repos }} + {{ packages_all.repos }}'
+  aur: '{{ packages_jvaughnserver.aur }} + {{ packages_all.aur }}'
 
 smartd:
   schedule: (L/../../6/05|S/../../[1-5]/05|S/../../7/05)
