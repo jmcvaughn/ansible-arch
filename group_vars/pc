@@ -55,6 +55,7 @@ packages_pc:
     - brother-hll2340dw
     - drawio-desktop-bin
     - neofetch
+    - slack-desktop
     # Rofi extensions/plugins
     - rofi-calc
 
