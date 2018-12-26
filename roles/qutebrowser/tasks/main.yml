@@ -3,13 +3,6 @@
     name:
       - qutebrowser
 
-- name: Install gst plugins
-  pacman:
-    name:
-      - gst-libav
-      - gst-plugins-good
-      - gst-plugins-bad
-
 - name: Install qt5-webengine-widevine
   aur:
     name: qt5-webengine-widevine
